@@ -1,0 +1,6 @@
+.venv/*
+.venv/
+metadata/dados/
+metadata/dados/token*
+metadata/dados/*.key
+metadata/dados/*.secret
