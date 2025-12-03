@@ -51,8 +51,6 @@ def get_clone_url(api_url: str) -> str | None:
 
 # === Clone repositories ===
 for i, api_url in enumerate(tqdm(repos, desc=f"Cloning repositories ({LANGUAGE})")):
-    if i == 2:
-        break
 
     clone_url = get_clone_url(api_url)
     if not clone_url:
