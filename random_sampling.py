@@ -17,7 +17,7 @@ OUTPUT_CSV = os.path.join(CLASSIFIED_DIR, "random_samples_detailed.csv")
 SNIPPETS_DIR = os.path.join(CLASSIFIED_DIR, "sample_snippets")
 
 # How many unique fingerprints to sample in total
-N_SAMPLES = 20
+N_SAMPLES = 48
 
 random.seed(42)
 
@@ -142,7 +142,7 @@ while len(rows) < N_SAMPLES and attempts < N_SAMPLES * 10:
     start_commit = row.get('start_commit')
 
     # Save basic fields from the classified file row (keep many common columns if present)
-    out = {k: row.get(k, "") for k in ['project','pr','clone_fingerprint','start_commit','end_commit','total_commits','categoria','distancia','duracao']}
+    out = {k: row.get(k, "") for k in ['project','pr','clone_fingerprint','start_commit','end_commit','total_commits','category','distancia','duracao']}
     out['source_classified_file'] = os.path.basename(file_path)
 
     # find corresponding search_results XML (child)
@@ -294,8 +294,8 @@ while len(rows) < N_SAMPLES and attempts < N_SAMPLES * 10:
         out['snippet2_error'] = err2
 
     # save snippets to files
-    s1_path = os.path.join(SNIPPETS_DIR, f"{project}_{pr}_{start_commit}_1.txt")
-    s2_path = os.path.join(SNIPPETS_DIR, f"{project}_{pr}_{start_commit}_2.txt")
+    s1_path = os.path.join(SNIPPETS_DIR, f"{project}_{pr}_{start_commit}_1_{fp}.txt")
+    s2_path = os.path.join(SNIPPETS_DIR, f"{project}_{pr}_{start_commit}_2_{fp}.txt")
     try:
         if snippet1 is not None:
             Path(s1_path).write_text(snippet1, encoding='utf-8', errors='ignore')
