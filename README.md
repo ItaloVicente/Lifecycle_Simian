@@ -82,6 +82,8 @@ GITHUB_TOKEN=your_github_token_here
 
 ### 📁 2.2. Settings Configuration
 
+Enter in folder `scripts`
+
 Edit the `settings.ini` file in the project root directory. It follows this structure:
 
 ```ini
